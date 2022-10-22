@@ -199,7 +199,7 @@ public class PlayerController : MonoBehaviour
         if (grounded || coyoteTimer <= movementSettings.GetCoyoteTime())
         {
             //add the force
-            rb.AddForce(Vector3.up * (movementSettings.GetJumpInitialVerticalVelo()), ForceMode.VelocityChange);
+            //rb.AddForce(Vector3.up * (movementSettings.GetJumpInitialVerticalVelo()), ForceMode.VelocityChange);
         }
     }
 
