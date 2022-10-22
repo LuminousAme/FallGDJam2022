@@ -11183,6 +11183,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpectreMoving
       objectReference: {fileID: 0}
+    - target: {fileID: 8766766070579529855, guid: 719c066e2806d8e4d881377f56862a77,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 719c066e2806d8e4d881377f56862a77, type: 3}
 --- !u!1 &959249098
