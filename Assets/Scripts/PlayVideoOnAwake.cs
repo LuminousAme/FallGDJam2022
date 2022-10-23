@@ -17,8 +17,9 @@ public class PlayVideoOnAwake : MonoBehaviour
         {
             if (ProgressManager.instance.GetIntroVideoPlayed())
             {
-                Destroy(gameObject);
                 play = false;
+                if (MusicManager.instance != null) MusicManager.instance.PlayTrack(0);
+                Destroy(gameObject);
             }
         }
         if(play)
@@ -41,6 +42,7 @@ public class PlayVideoOnAwake : MonoBehaviour
             // For example Destroy(gameobject) if you just want to put this script on each video
             if (controller != null) controller.setControlsState(true);
             if (lantern != null) lantern.gameObject.SetActive(true);
+            if (MusicManager.instance != null) MusicManager.instance.PlayTrack(0);
             if (ProgressManager.instance != null)
             {
                 ProgressManager.instance.SetIntroVideoPlayed(true);

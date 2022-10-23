@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
 
     private bool active = true;
 
+    [SerializeField] private AudioSource AudioSource;
+    private bool audioplaying = false;
+    private bool audioShouldBePlaying = false;
+
     private void Awake()
     {
         controls = new PlayerControls();
@@ -60,6 +64,9 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        audioplaying = false;
+        audioShouldBePlaying = false;
     }
 
     // Update is called once per frame
@@ -84,6 +91,23 @@ public class PlayerController : MonoBehaviour
 
         //rotate the player towards their target rotation
         FixedRotatePlayer();
+
+        Vector3 velo = rb.velocity;
+        velo.y = 0f;
+
+        if (velo.magnitude > 0.5f) audioShouldBePlaying = true;
+        else audioShouldBePlaying = false;
+
+        if (audioplaying && !audioShouldBePlaying)
+        {
+            AudioSource.Stop();
+            audioplaying = false;
+        }
+        else if (!audioplaying && audioShouldBePlaying)
+        {
+            AudioSource.Play();
+            audioplaying = true;
+        }
     }
 
     private void FixedUpdate()

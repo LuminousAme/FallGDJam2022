@@ -20,6 +20,7 @@ public class TriggerVideo : MonoBehaviour
         if (controller != null) controller.setControlsState(false);
         lantern = FindObjectOfType<Lantern>();
         if (lantern != null) lantern.gameObject.SetActive(false);
+        if (MusicManager.instance != null) MusicManager.instance.Stop();
     }
 
     // Update is called once per frame
@@ -31,7 +32,8 @@ public class TriggerVideo : MonoBehaviour
             // For example Destroy(gameobject) if you just want to put this script on each video
             if (controller != null) controller.setControlsState(true);
             if (lantern != null) lantern.gameObject.SetActive(true);
-            OnVideoFinished?.Invoke();
+            if (OnVideoFinished != null) OnVideoFinished.Invoke();
+            else if (MusicManager.instance != null) MusicManager.instance.PlayTrack(0);
             Destroy(gameObject);
         }
     }

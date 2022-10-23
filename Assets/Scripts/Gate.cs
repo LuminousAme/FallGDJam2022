@@ -5,6 +5,7 @@ using UnityEngine;
 public class Gate : MonoBehaviour
 {
     [SerializeField] GameObject gateGO;
+    [SerializeField] AudioSource audiosource;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class Gate : MonoBehaviour
     {
         if(ProgressManager.instance.ObjectAquired(2))
         {
+            if (audiosource != null) audiosource.Play();
             ProgressManager.instance.SetGateDone(true);
             gateGO.SetActive(false);
         }

@@ -32,6 +32,7 @@ public class ProgressManager : MonoBehaviour
         GateDone = false;
         currentOil = maxOil;
         introVideoPlayed = false;
+        if (MusicManager.instance != null) MusicManager.instance.Stop();
     }
 
     public bool ObjectAquired(int obj)
