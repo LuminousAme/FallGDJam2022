@@ -11,6 +11,8 @@ public class ProgressManager : MonoBehaviour
     [SerializeField] float maxOil;
     static float currentOil = -100.0f;
 
+    bool introVideoPlayed = false;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -29,6 +31,7 @@ public class ProgressManager : MonoBehaviour
         }
         GateDone = false;
         currentOil = maxOil;
+        introVideoPlayed = false;
     }
 
     public bool ObjectAquired(int obj)
@@ -65,4 +68,7 @@ public class ProgressManager : MonoBehaviour
     }
     public void SetCurrentOil(float current) => currentOil = current; 
     public float GetMaxOil() => maxOil;
+
+    public bool GetIntroVideoPlayed() => introVideoPlayed;
+    public void SetIntroVideoPlayed(bool played) => introVideoPlayed = played;
 }
