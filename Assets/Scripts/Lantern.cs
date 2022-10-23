@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class Lantern : MonoBehaviour
 {
-    [SerializeField] private float MaxOil = 60.0f;
     [SerializeField] private float oilPerSecond = 1.0f;
     private float currentOil;
-
-    public float GetCurrentOil() => currentOil;
-    public float GetMaxOil() => MaxOil;
 
     private bool burning = false;
     private bool acutalBurning = false;
@@ -39,7 +35,10 @@ public class Lantern : MonoBehaviour
         activePosition = transform.localPosition;
         targetPosition = activePosition;
         flame.Stop();
-        currentOil = MaxOil;
+
+        if (ProgressManager.instance != null) currentOil = ProgressManager.instance.GetCurrentOil();
+        else currentOil = 0f;
+
         Change();
     }
 

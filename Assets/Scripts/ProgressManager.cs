@@ -8,12 +8,15 @@ public class ProgressManager : MonoBehaviour
     static bool[] objs = { false, false, false }; //book, pineapple, key
     static ObjectStatueProgress[] objectStatues = { new ObjectStatueProgress(false, false), new ObjectStatueProgress(false, false) };
     static bool GateDone = false;
+    [SerializeField] float maxOil;
+    static float currentOil;
 
     private void Awake()
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
 
+        Restart();
         DontDestroyOnLoad(gameObject);
     }
 
@@ -26,6 +29,7 @@ public class ProgressManager : MonoBehaviour
             objectStatues[i].secondInteractionDone = false;
         }
         GateDone = false;
+        currentOil = maxOil;
     }
 
     public bool ObjectAquired(int obj)
@@ -49,9 +53,12 @@ public class ProgressManager : MonoBehaviour
 
     public void FinishSecondObjectStatueInteraction(int objectNumber)
     {
-        objectStatues[objectNumber].firstInteractionDone = false;
+        objectStatues[objectNumber].secondInteractionDone = true;
     }
 
     public bool GetGateDone() => GateDone;
     public void SetGateDone(bool done) => GateDone = done;
+
+    public float GetCurrentOil() => currentOil;
+    public float GetMaxOil() => maxOil;
 }
