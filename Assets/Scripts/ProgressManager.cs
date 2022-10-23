@@ -9,14 +9,13 @@ public class ProgressManager : MonoBehaviour
     static ObjectStatueProgress[] objectStatues = { new ObjectStatueProgress(false, false), new ObjectStatueProgress(false, false) };
     static bool GateDone = false;
     [SerializeField] float maxOil;
-    static float currentOil;
+    static float currentOil = -100.0f;
 
     private void Awake()
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
 
-        Restart();
         DontDestroyOnLoad(gameObject);
     }
 
@@ -59,6 +58,11 @@ public class ProgressManager : MonoBehaviour
     public bool GetGateDone() => GateDone;
     public void SetGateDone(bool done) => GateDone = done;
 
-    public float GetCurrentOil() => currentOil;
+    public float GetCurrentOil()
+    {
+        if (currentOil < -50f) currentOil = maxOil;
+        return currentOil;
+    }
+    public void SetCurrentOil(float current) => currentOil = current; 
     public float GetMaxOil() => maxOil;
 }

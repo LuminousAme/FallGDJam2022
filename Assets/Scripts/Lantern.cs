@@ -65,6 +65,7 @@ public class Lantern : MonoBehaviour
         if (raised != acutalRaised) Raise();
 
         if (burning) currentOil -= oilPerSecond * Time.deltaTime;
+        if (ProgressManager.instance != null) ProgressManager.instance.SetCurrentOil(currentOil);
 
         flameLight.intensity = MathUtils.Lerp(flameLight.intensity, targetIntensity, 5.0f * Time.deltaTime);
         flameLight.range = MathUtils.Lerp(flameLight.range, targetRange, 2.0f * Time.deltaTime);
