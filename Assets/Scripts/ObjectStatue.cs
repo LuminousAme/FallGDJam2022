@@ -7,6 +7,7 @@ public class ObjectStatue : MonoBehaviour
     bool firstInteractionDone = false;
     [SerializeField] GameObject statueGO;
     [SerializeField] int objectNumber;
+    [SerializeField] TriggerVideo v1, v2;
 
     // Start is called before the first frame update
     void Start()
@@ -20,13 +21,13 @@ public class ObjectStatue : MonoBehaviour
     {
         if(!firstInteractionDone)
         {
-            //play first video
+            v1.gameObject.SetActive(true);
             firstInteractionDone = true;
             ProgressManager.instance.FinishFirstObjectStatueInteraction(objectNumber);
         }
         else if (ProgressManager.instance.ObjectAquired(objectNumber))
         {
-            //play second video
+            v2.gameObject.SetActive(true);
             ProgressManager.instance.FinishSecondObjectStatueInteraction(objectNumber);
             statueGO.SetActive(false);
         }

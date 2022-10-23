@@ -70,6 +70,8 @@ public class Lantern : MonoBehaviour
         flameLight.intensity = MathUtils.Lerp(flameLight.intensity, targetIntensity, 5.0f * Time.deltaTime);
         flameLight.range = MathUtils.Lerp(flameLight.range, targetRange, 2.0f * Time.deltaTime);
         transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, 2.0f * Time.deltaTime);
+
+        if (flame.isPlaying && !burning) flame.Stop(); 
     }
 
     private void Change()

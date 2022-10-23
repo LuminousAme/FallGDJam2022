@@ -40,10 +40,10 @@ public class PlayVideoOnAwake : MonoBehaviour
             // Put anything you want to happen after the video is done here.
             // For example Destroy(gameobject) if you just want to put this script on each video
             if (controller != null) controller.setControlsState(true);
+            if (lantern != null) lantern.gameObject.SetActive(true);
             if (ProgressManager.instance != null)
             {
                 ProgressManager.instance.SetIntroVideoPlayed(true);
-                if (lantern != null) lantern.gameObject.SetActive(true);
                 Destroy(gameObject);
             }
         }
