@@ -236,7 +236,6 @@ GameObject:
   - component: {fileID: 2629137033653580113}
   - component: {fileID: 2629137033653580114}
   - component: {fileID: 2629137033653580115}
-  - component: {fileID: 2629137033653580112}
   - component: {fileID: 6607715538944992542}
   m_Layer: 0
   m_Name: Main Camera
@@ -312,39 +311,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2629137033653580124}
   m_Enabled: 1
---- !u!114 &2629137033653580112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2629137033653580124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
-  m_Antialiasing: 1
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 1
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
 --- !u!114 &6607715538944992542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,7 +507,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb7c24eebdc7bc4c84dd1c0271e7070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxOil: 60
   oilPerSecond: 1
   flame: {fileID: 7061464821130955444}
   flameLight: {fileID: 6396746445245856029}
@@ -753,7 +718,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3829450815758340747}
   - component: {fileID: 6396746445245856029}
-  - component: {fileID: 3576053154429629072}
   m_Layer: 6
   m_Name: Point Light
   m_TagString: Untagged
@@ -787,14 +751,14 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.8174251, b: 0.7783019, a: 1}
-  m_Intensity: 2
-  m_Range: 20
+  m_Color: {r: 1, g: 0.1764706, b: 0, a: 1}
+  m_Intensity: 1
+  m_Range: 15
   m_SpotAngle: 99.59892
   m_InnerSpotAngle: 65.73589
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -838,26 +802,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &3576053154429629072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5272304891392660569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Version: 1
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &6013986450968709154
 GameObject:
   m_ObjectHideFlags: 0
